@@ -1,0 +1,27 @@
+{
+  "name": "TeenShare",
+  "version": "0.0.0",
+  "description": "Share with each other",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:teenworks/teenshare.git"
+  },
+  "keywords": [
+    "share",
+    "info",
+    "express"
+  ],
+  "author": "Fantasy Shao <fantasyshao@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teenworks/teenshare/issues"
+  },
+  "dependencies": {
+    "express": "~4.8.5",
+    "mongoose": "~3.8.15"
+  }
+}
