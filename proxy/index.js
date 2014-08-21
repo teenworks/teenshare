@@ -1,5 +1,5 @@
 /**
- * routes.js
+ * index.js
  *
  * @description:
  * @author: fantasy <fantasyshao@icloud.com>
@@ -7,4 +7,4 @@
  * @update: 21/8/14
  */
 
-var user = require('./controllers/user');
+exports.User = require('./user');
