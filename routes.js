@@ -15,4 +15,5 @@ module.exports = function(app) {
   app.get('/signin', sign.showLogin);
   // 注册
   app.get('/signup', sign.showSignup);
+  app.post('/signup', sign.signup);
 };

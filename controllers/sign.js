@@ -4,12 +4,12 @@
  * @description:
  * @author: fantasy <fantasyshao@icloud.com>
  * @create: 21/8/14
- * @update: 21/8/14
+ * @update: 22/8/14
  */
 
 // Module dependencies
-var check = require('validator').check;
-var sanitize = require('validator').sanitize;
+var validator = require('validator');
+var xss = require('xss');
 var crypto = require('crypto');
 
 var config = require('../config').config;
@@ -38,19 +38,19 @@ exports.showLogin = function(req, res) {
  */
 exports.signup = function(req, res, next) {
   // 用户名
-  var name = sanitize(req.body.name).trim();
-      name = sanitize(name).xss();
+  var name = validator.trim(req.param('name'));
+      name = xss(name);
 
   // 登录名
   var nickname = name.toLowerCase();
 
   // 密码
-  var pass = sanitize(req.body.pass).trim();
-      pass = sanitize(pass).xss();
+  var pass = validator.trim(req.param('pass'));
+      pass = xss(pass);
 
   // 重复密码
-  var re_pass = sanitize(req.body.re_pass).trim();
-      re_pass = sanitize(re_pass).xss();
+  var re_pass = validator.trim(req.param('re_pass'));
+      re_pass = xss(re_pass);
 
   if (name === '' || pass === '' || re_pass === '') {
     res.render('sign/signup', {error: '注册信息不全', name: name});
@@ -64,10 +64,8 @@ exports.signup = function(req, res, next) {
     return;
   }
 
-  try {
-    check(name, '用户名只能使用0-9, a-z, A-Z').isAlphanumeric();
-  } catch (e) {
-    res.render('sign/signup', {error: e.message, name: name});
+  if (!validator.isAlphanumeric(name)) {
+    res.render('sign/signup', {error: '用户名中只能包含 a-z, A-Z, 0-9', name: name});
 
     return;
   }
@@ -79,12 +77,10 @@ exports.signup = function(req, res, next) {
   }
 
   // 查询是否已被注册
-  User.getUsersByQuery({'$or': [
-    {'nickname': nickname}
-  ]}, {}, function(err, users) {
+  User.getUserByQuery(name, function(err, user) {
     if (err) return next(err);
 
-    if (users.length > 0) {
+    if (user.length > 0) {
       res.render('sign/signup', {error: '用户名已被注册', name: name});
       return;
     }
@@ -92,11 +88,11 @@ exports.signup = function(req, res, next) {
     // 加密
     md5(pass);
 
-    User.newAndSave(name, loginName, pass, function(err) {
+    User.newAndSave(name, nickname, pass, function(err) {
       if (err) return next(err);
 
-      res.render('sign/signup', {
-        success: '欢迎键入' + config.name
+      return res.render('sign/signup', {
+        success: '欢迎加入' + config.name
       });
     });
   });
@@ -110,8 +106,8 @@ exports.signup = function(req, res, next) {
  * @param next
  */
 exports.login = function(req, res, next) {
-  var nickname = sanitize(req.body.name).trim().toLowerCase(),
-      pass = sanitize(req.body.pass).trim();
+  var nickname = sanitize(req.param.name).trim().toLowerCase(),
+      pass = sanitize(req.param.pass).trim();
 
   pass = md5(pass);
 
