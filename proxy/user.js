@@ -7,7 +7,7 @@
  * @update: 21/8/14
  */
 
-var models = require('./models');
+var models = require('../models');
 var User = models.User;
 
 /**

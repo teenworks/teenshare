@@ -3,11 +3,22 @@ var path = require('path');
 var express = require('express'),
     app = express();
 
+require('./models');
+
+var routes = require('./routes');
+var config = require('./config').config;
+var staticDir = path.join(__dirname, 'public');
+
+// set view engine
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
-app.get('/', function(req, res) {
-    res.send('Teen Share');
-}).listen(3000);
+app.use('/public', express.static(staticDir));
 
-console.log('TeenShare listening on http://localhost:3000');
+routes(app);
+
+app.listen(config.port, function() {
+  console.log('TeenShare listening on http://localhost:' + config.port);
+});
+
+module.exports = app;
