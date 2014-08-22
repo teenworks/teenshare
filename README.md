@@ -1,4 +1,8 @@
 TeenShare
 ------
 
-Infomation share platform
+Information share platform
+
+## License
+
+The [MIT](LICENSE) License
