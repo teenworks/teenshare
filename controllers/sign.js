@@ -86,7 +86,7 @@ exports.signup = function(req, res, next) {
     }
 
     // 加密
-    md5(pass);
+    pass = md5(pass);
 
     User.newAndSave(name, nickname, pass, function(err) {
       if (err) return next(err);
@@ -106,12 +106,12 @@ exports.signup = function(req, res, next) {
  * @param next
  */
 exports.login = function(req, res, next) {
-  var nickname = sanitize(req.param.name).trim().toLowerCase(),
-      pass = sanitize(req.param.pass).trim();
+  var nickname = validator.trim(req.param('name')).toLowerCase(),
+      pass = validator.trim(req.param('pass'));
 
   pass = md5(pass);
 
-  if (!nickname || !pass) {
+  if (nickname === '' || pass === '') {
     return res.render('sign/signin', {error: '登录信息不全'});
   }
 

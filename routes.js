@@ -13,6 +13,7 @@ var user = require('./controllers/user');
 module.exports = function(app) {
   // 登录
   app.get('/signin', sign.showLogin);
+  app.post('/login', sign.login);
   // 注册
   app.get('/signup', sign.showSignup);
   app.post('/signup', sign.signup);

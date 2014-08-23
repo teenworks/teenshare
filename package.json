@@ -27,6 +27,8 @@
     "crypto": "0.0.3",
     "jade": "~1.5.0",
     "body-parser": "~1.6.5",
-    "xss": "~0.1.10"
+    "xss": "~0.1.10",
+    "express-session": "~1.7.6",
+    "connect-mongo": "~0.4.1"
   }
 }
