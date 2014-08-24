@@ -7,10 +7,13 @@
  * @update: 21/8/14
  */
 
+var site = require('./controllers/site');
 var sign = require('./controllers/sign');
 var user = require('./controllers/user');
 
 module.exports = function(app) {
+  // 首页
+  app.get('/', site.index);
   // 登录
   app.get('/signin', sign.showLogin);
   app.post('/login', sign.login);
