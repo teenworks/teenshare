@@ -29,6 +29,7 @@
     "body-parser": "~1.6.5",
     "xss": "~0.1.10",
     "express-session": "~1.7.6",
-    "connect-mongo": "~0.4.1"
+    "connect-mongo": "~0.4.1",
+    "eventproxy": "~0.3.1"
   }
 }

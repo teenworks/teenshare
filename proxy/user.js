@@ -18,7 +18,7 @@ var User = models.User;
  * @param pass
  * @param callback
  */
-exports.newAndSave = function(name, nickname, pass, callback) {
+exports.newAndSave = function (name, nickname, pass, callback) {
   var user = new User();
 
   user.name = name;
@@ -35,8 +35,18 @@ exports.newAndSave = function(name, nickname, pass, callback) {
  * @param opt
  * @param callback
  */
-exports.getUsersByQuery = function(query, opt, callback) {
+exports.getUsersByQuery = function (query, opt, callback) {
   User.find(query, [], opt, callback);
+};
+
+/**
+ * 根据id查询用户
+ *
+ * @param id
+ * @param callback
+ */
+exports.getUserById = function (id, callback) {
+  User.findOne({_id: id}, callback);
 };
 
 /**
@@ -45,7 +55,7 @@ exports.getUsersByQuery = function(query, opt, callback) {
  * @param name
  * @param callback
  */
-exports.getUserByQuery = function(name, callback) {
+exports.getUserByQuery = function (name, callback) {
   User.find({name: name}, callback);
 };
 
@@ -55,6 +65,6 @@ exports.getUserByQuery = function(name, callback) {
  * @param nickname
  * @param callback
  */
-exports.getUserByLoginName = function(nickname, callback) {
+exports.getUserByLoginName = function (nickname, callback) {
   User.findOne({'nickname': nickname}, callback);
 };

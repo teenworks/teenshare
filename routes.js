@@ -3,14 +3,14 @@
  *
  * @description:
  * @author: fantasy <fantasyshao@icloud.com>
- * @create: 21/8/14
- * @update: 21/8/14
+ * @create: 2014-08-21
+ * @update: 2014-08-26
  */
 
-var site = require('./controllers/site');
-var sign = require('./controllers/sign');
-var user = require('./controllers/user');
-var topic = require('./controllers/topic');
+var site = require('./controllers/site'),
+    sign = require('./controllers/sign'),
+    user = require('./controllers/user'),
+    topic = require('./controllers/topic');
 
 module.exports = function(app) {
   // 首页
