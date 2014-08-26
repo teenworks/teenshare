@@ -10,6 +10,7 @@
 var site = require('./controllers/site');
 var sign = require('./controllers/sign');
 var user = require('./controllers/user');
+var topic = require('./controllers/topic');
 
 module.exports = function(app) {
   // 首页
@@ -20,4 +21,6 @@ module.exports = function(app) {
   // 注册
   app.get('/signup', sign.showSignup);
   app.post('/signup', sign.signup);
+  // 发布链接
+  app.post('/topic/create');
 };

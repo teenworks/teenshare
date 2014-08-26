@@ -12,7 +12,9 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   name: { type: String },
   nickname: { type: String },
-  pass: { type: String }
+  pass: { type: String },
+  topic_count: { type: Number, default: 0 },
+  collect_count: { type: Number, default: 0 }
 });
 
 UserSchema.index({
