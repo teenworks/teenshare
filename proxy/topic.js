@@ -4,7 +4,7 @@
  * @description:
  * @author: fantasy <fantasyshao@icloud.com>
  * @create: 2014-08-25
- * @update: 2014-08-26
+ * @update: 2014-08-30
  */
 
 var EventProxy = require('eventproxy');

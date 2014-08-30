@@ -10,7 +10,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = Schema.ObjectID;
+var ObjectId = Schema.ObjectId;
 
 var ReplySchema = new Schema({
   content: { type: String },

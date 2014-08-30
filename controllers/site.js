@@ -4,7 +4,7 @@
  * @description: TeenShare Index Controller
  * @author: fantasy <fantasyshao@icloud.com>
  * @create: 2014-08-24
- * @update: 2014-08-26
+ * @update: 2014-08-30
  */
 
 var config = require('../config').config;
@@ -35,7 +35,7 @@ exports.index = function (req, res, next) {
     skip: (page - 1) * limit,
     limit: limit,
     sort: [
-      ['top', 'desc']
+      ['last_reply_at', 'desc']
     ]
   };
 
