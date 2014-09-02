@@ -1,7 +1,7 @@
 {
   "name": "TeenShare",
   "version": "0.0.0",
-  "description": "Share with each other",
+  "description": "Sharing platform for TeenWorks",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,7 @@
   "keywords": [
     "share",
     "info",
-    "express"
+    "koa"
   ],
   "author": "Fantasy Shao <fantasyshao@icloud.com>",
   "license": "MIT",
@@ -21,17 +21,7 @@
     "url": "https://github.com/teenworks/teenshare/issues"
   },
   "dependencies": {
-    "express": "~4.8.5",
-    "mongoose": "~3.8.15",
-    "validator": "~3.17.0",
-    "crypto": "0.0.3",
-    "jade": "~1.5.0",
-    "body-parser": "~1.6.5",
-    "xss": "~0.1.10",
-    "express-session": "~1.7.6",
-    "connect-mongo": "~0.4.1",
-    "eventproxy": "~0.3.1",
     "gulp": "~3.8.7",
-    "gulp-shell": "~0.2.9"
+    "koa": "^0.10.0"
   }
 }
