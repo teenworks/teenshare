@@ -34,9 +34,9 @@ exports.index = function (req, res, next) {
   var options = {
     skip: (page - 1) * limit,
     limit: limit,
-    sort: [
-      ['last_reply_at', 'desc']
-    ]
+    sort: {
+      'last_reply_at': 'desc'
+    }
   };
 
   Topic.getTopicsByQuery({}, options, proxy.done('topics', function (topics) {
