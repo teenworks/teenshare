@@ -1,9 +1,11 @@
 /**
- * user.js
  *
- * @author: fantasy <fantasyshao@icloud.com>
- * @create: 2014-08-21
- * @update: 2014-08-21
+ * user
+ *
+ * @description
+ * @author Fantasy <fantasyshao@icloud.com>
+ * @create 2014-09-03
+ * @update 2014-09-03
  */
 
 var mongoose = require('mongoose');
@@ -11,8 +13,7 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   name: { type: String },
-  nickname: { type: String },
-  pass: { type: String },
+  password: { type: String },
   topic_count: { type: Number, default: 0 },
   collect_count: { type: Number, default: 0 }
 });

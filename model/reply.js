@@ -2,10 +2,10 @@
  *
  * reply
  *
- * @description TeenWorks Reply Model
- * @author shaochunhua
- * @create 2014-08-29
- * @update 2014-08-29
+ * @description
+ * @author Fantasy <fantasyshao@icloud.com>
+ * @create 2014-09-03
+ * @update 2014-09-03
  */
 
 var mongoose = require('mongoose');
@@ -20,7 +20,13 @@ var ReplySchema = new Schema({
   create_at: { type: Date, default: Date.now }
 });
 
-ReplySchema.index({ topic_id: 1 });
-ReplySchema.index({ author_id: 1, create_at: -1 });
+ReplySchema.index({
+  topic_id: 1
+});
+
+ReplySchema.index({
+  author_id: 1,
+  create_at: -1
+});
 
 mongoose.model('Reply', ReplySchema);
