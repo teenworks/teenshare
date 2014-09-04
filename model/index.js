@@ -5,7 +5,7 @@
  * @description
  * @author shaochunhua
  * @create 2014-09-03
- * @update 2014-09-03
+ * @update 2014-09-04
  */
 
 var mongoose = require('mongoose');
@@ -17,3 +17,13 @@ mongoose.connect(config.db, function (err) {
     process.exit(1);
   }
 });
+
+require('./user');
+require('./topic');
+require('./reply');
+require('./topic_collect');
+
+exports.User = mongoose.model('User');
+exports.Topic = mongoose.model('Topic');
+exports.Reply = mongoose.model('Reply');
+exports.TopicCollect = mongoose.model('TopicCollect');
