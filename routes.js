@@ -15,8 +15,14 @@ module.exports = function (app) {
   var route = new Route();
 
   var siteController = require('./controller/site');
+  var signController = require('./controller/sign');
 
+  // homepage
   route.get('/', siteController.index);
+
+  // sign in and sign up.
+  route.get('/signin', signController.signin);
+  route.get('/signup', signController.signup);
 
   return route.middleware();
 };

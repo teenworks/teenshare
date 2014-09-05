@@ -22,7 +22,6 @@ app.use(require('koa-bodyparser')());
 app.use(require('koa-less')(__dirname + '/public'));
 app.use(require('koa-static')(__dirname + '/public'));
 
-
 require('./model');
 
 app.use(require('./routes')(app));
