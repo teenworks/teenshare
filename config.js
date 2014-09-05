@@ -13,7 +13,13 @@ var config = {
   description: 'Sharing platform for TeenWorks.',
   db: 'mongodb://127.0.0.1/teenshare',
   db_name: 'teenshare',
-  port: 3000
+  port: 3000,
+  bodyparser: {},
+  session: {
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24
+    }
+  }
 };
 
 module.exports = config;

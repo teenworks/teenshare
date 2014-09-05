@@ -26,4 +26,4 @@ require('./topic_collect');
 exports.User = mongoose.model('User');
 exports.Topic = mongoose.model('Topic');
 exports.Reply = mongoose.model('Reply');
-exports.TopicCollect = mongoose.model('TopicCollect');
+exports.TopicCollect = mongoose.model('TopicCollection');

@@ -24,6 +24,11 @@
     "gulp": "~3.8.7",
     "koa": "^0.10.0",
     "mongoose": "^3.8.15",
-    "koa-router": "^3.3.1"
+    "koa-router": "^3.3.1",
+    "koa-bodyparser": "^1.0.1",
+    "koa-less": "0.0.3",
+    "koa-static": "^1.4.6",
+    "mongoose-q": "0.0.12",
+    "koa-ejs": "^1.1.2"
   }
 }
