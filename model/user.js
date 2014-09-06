@@ -24,7 +24,7 @@ UserSchema.index({
   unique: true
 });
 
-UserSchema.method.add = function () {
+UserSchema.methods.add = function () {
   var self = this;
   var p = new Promise();
 

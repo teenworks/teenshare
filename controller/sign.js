@@ -8,6 +8,9 @@
  * @update 2014-09-05
  */
 
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+
 module.exports = {
 
   signin: function *() {
@@ -38,6 +41,20 @@ module.exports = {
 
   doSignup: function *() {
 
+    var params = this.request.body;
+
+    console.log(params);
+
+    var user = new User(params);
+
+    yield user.add();
+
+    this.body = {
+      success: true,
+      name: user.name
+    };
+
+    this.redirect('/');
   }
 
 };
