@@ -27,24 +27,23 @@ module.exports = {
 
   doSignin: function *() {
 
-    var self = this;
     var params = this.request.body;
 
-    var user = new User();
-    user.name = params.name;
-    user.password = params.password;
+    var user = yield User.findOne({ name: params.name }).exec();
 
-    user.save(function () {
+    try {
+      if (user.password === params.password) {
+        this.redirect('/');
+      }
+    } catch (e) {
+      console.error(e);
+    }
 
-    });
   },
 
   doSignup: function *() {
 
     var params = this.request.body;
-
-    console.log(params);
-
     var user = new User(params);
 
     yield user.add();
